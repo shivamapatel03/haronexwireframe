@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Your Banquets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#0f172a', // slate-900
+                        gold: '#fbbf24', // amber-400
+                        'gold-light': '#fcd34d', // amber-300
+                        'dark-blue': '#1e293b', // slate-800
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap');
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-midnight/95 backdrop-blur-md border-b border-gold/10 py-4 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-2xl md:text-3xl font-serif font-bold tracking-wider text-white">
+                YOUR <span class="text-gold">BANQUETS</span>
+            </a>
+            
+            <div class="hidden md:flex gap-10 text-sm font-sans tracking-widest uppercase items-center">
+                <a href="about.html" class="hover:text-gold transition-colors duration-300">About</a>
+                <a href="venues.html" class="hover:text-gold transition-colors duration-300">Venues</a>
+                <a href="services.html" class="text-gold transition-colors duration-300">Services</a>
+                <a href="book.html" class="px-6 py-2 border border-gold text-gold hover:bg-gold hover:text-midnight transition-all duration-300">Book Now</a>
+            </div>
+
+            <button class="md:hidden text-2xl text-gold">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-40 pb-20 px-6 text-center bg-dark-blue border-b border-white/5">
+        <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 text-white">Exquisite Services</h1>
+        <p class="text-gold uppercase tracking-[0.3em] text-sm">Beyond the Venue</p>
+    </header>
+
+    <!-- Services Grid -->
+    <section class="py-24 max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="bg-dark-blue p-8 border border-white/5 hover:border-gold/30 transition-all duration-300 group">
+                <i class="fa-solid fa-utensils text-4xl text-gold mb-6"></i>
+                <h3 class="text-2xl font-serif font-bold mb-4">Gourmet Catering</h3>
+                <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                    From 7-course sit-down dinners to lavish buffets, our culinary team specializes in global cuisines including Indian, Continental, and Oriental delicacies. We offer bespoke menu planning to suit your palate.
+                </p>
+                <a href="#" class="text-xs uppercase tracking-widest text-white group-hover:text-gold transition-colors">View Menus <i class="fa-solid fa-arrow-right ml-2"></i></a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="bg-dark-blue p-8 border border-white/5 hover:border-gold/30 transition-all duration-300 group">
+                <i class="fa-solid fa-wand-magic-sparkles text-4xl text-gold mb-6"></i>
+                <h3 class="text-2xl font-serif font-bold mb-4">Thematic Decor</h3>
+                <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                    Our in-house design team transforms spaces. Whether you dream of a floral wonderland, a vintage rustic vibe, or modern minimalism, we execute your vision with precision and style.
+                </p>
+                <a href="#" class="text-xs uppercase tracking-widest text-white group-hover:text-gold transition-colors">View Gallery <i class="fa-solid fa-arrow-right ml-2"></i></a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="bg-dark-blue p-8 border border-white/5 hover:border-gold/30 transition-all duration-300 group">
+                <i class="fa-solid fa-music text-4xl text-gold mb-6"></i>
+                <h3 class="text-2xl font-serif font-bold mb-4">Audio & Entertainment</h3>
+                <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                    We provide top-tier production support including concert-grade sound systems, intelligent lighting rigs, and a roster of the city's best DJs and live bands.
+                </p>
+                <a href="#" class="text-xs uppercase tracking-widest text-white group-hover:text-gold transition-colors">Learn More <i class="fa-solid fa-arrow-right ml-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-24 bg-midnight border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-serif font-bold mb-16">The Planning Process</h2>
+            <div class="flex flex-col md:flex-row justify-between items-center relative">
+                <!-- Line -->
+                <div class="absolute top-1/2 left-0 w-full h-[1px] bg-white/10 hidden md:block z-0"></div>
+                
+                <!-- Step 1 -->
+                <div class="relative z-10 bg-midnight p-4 w-64">
+                    <div class="w-16 h-16 rounded-full bg-dark-blue border border-gold text-gold flex items-center justify-center text-2xl font-serif mx-auto mb-6">1</div>
+                    <h4 class="text-lg font-bold mb-2">Consultation</h4>
+                    <p class="text-xs text-slate-400">We meet to discuss your vision, budget, and requirements.</p>
+                </div>
+
+                 <!-- Step 2 -->
+                 <div class="relative z-10 bg-midnight p-4 w-64">
+                    <div class="w-16 h-16 rounded-full bg-dark-blue border border-gold text-gold flex items-center justify-center text-2xl font-serif mx-auto mb-6">2</div>
+                    <h4 class="text-lg font-bold mb-2">Design & Plan</h4>
+                    <p class="text-xs text-slate-400">Our team creates a tailored proposal and floor plan.</p>
+                </div>
+
+                 <!-- Step 3 -->
+                 <div class="relative z-10 bg-midnight p-4 w-64">
+                    <div class="w-16 h-16 rounded-full bg-dark-blue border border-gold text-gold flex items-center justify-center text-2xl font-serif mx-auto mb-6">3</div>
+                    <h4 class="text-lg font-bold mb-2">Execution</h4>
+                    <p class="text-xs text-slate-400">On the big day, we manage every detail while you celebrate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-20 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                 <a href="index.html" class="text-3xl font-serif font-bold tracking-wider text-white block mb-6">
+                    YOUR <span class="text-gold">BANQUETS</span>
+                </a>
+                <p class="text-slate-500 max-w-sm mb-8 font-light">
+                    Creating legendary moments.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 border border-white/20 flex items-center justify-center rounded-full hover:border-gold hover:text-gold transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 border border-white/20 flex items-center justify-center rounded-full hover:border-gold hover:text-gold transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-gold uppercase tracking-widest text-xs font-bold mb-8">Quick Links</h4>
+                 <ul class="space-y-4 text-slate-400 font-light text-sm">
+                    <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="venues.html" class="hover:text-white transition-colors">Venues</a></li>
+                    <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+                    <li><a href="book.html" class="hover:text-white transition-colors">Book Now</a></li>
+                </ul>
+            </div>
+             <div>
+                <h4 class="text-gold uppercase tracking-widest text-xs font-bold mb-8">Contact</h4>
+                <ul class="space-y-4 text-slate-400 font-light text-sm">
+                    <li>+91 xxxxx xxxxx</li>
+                    <li>events@yourbanquets.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-white/5 text-center text-slate-600 text-xs uppercase tracking-widest">
+            &copy; 2024 Your Banquets. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>

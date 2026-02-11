@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketch | Gym Wireframe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Architects Daughter', cursive;
+            background-color: #fff;
+            color: #2c2520; /* Earth grit */
+        }
+        
+        .sketch-box {
+            border: 2px solid #2c2520;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .sketch-line {
+            border-bottom: 2px solid #5d7d54;
+            width: 100%;
+            height: 2px;
+            margin: 1rem 0;
+            transform: rotate(-0.5deg);
+        }
+
+        .sketch-circle {
+            border: 2px solid #2c2520;
+            border-radius: 50% 45% 52% 48% / 48% 52% 45% 50%;
+        }
+
+        .your-image-placeholder {
+            background-color: #f9f7f0;
+            border: 2px dashed #d4c5a2;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            color: #d4c5a2;
+        }
+
+        .forest-accent { color: #1a472a; }
+        .moss-accent { color: #5d7d54; }
+        .sand-accent { color: #d4c5a2; }
+        
+        .forest-bg {
+            background-color: #1a472a;
+            color: #fff;
+            border: 2px solid #d4c5a2;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        }
+
+        .rough-btn {
+            border: 2px solid #2c2520;
+            border-radius: 120px 20px 100px 30px / 30px 110px 20px 120px;
+            padding: 0.75rem 2rem;
+            transition: transform 0.2s;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+        }
+        .rough-btn:active { transform: scale(0.98); }
+
+        .sand-btn {
+            background-color: #d4c5a2;
+            border-color: #1a472a;
+            color: #1a472a;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 1px dashed #d4c5a2;
+            padding: 0.25rem 0.75rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <!-- Navbar -->
+    <nav class="max-w-7xl mx-auto flex justify-between items-center mb-20 px-4">
+        <div class="text-3xl font-bold tracking-wider">
+            YOUR <span class="sand-accent underline decoration-forest-accent underline-offset-4">GYM</span>
+        </div>
+        <div class="hidden md:flex gap-10 font-bold uppercase text-sm">
+            <span>[ CLASSES ]</span>
+            <span>[ TRAINERS ]</span>
+        </div>
+        <div class="rough-btn sand-btn font-bold">JOIN_NOW</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto mb-32 px-4 grid md:grid-cols-2 gap-16 items-center">
+        <div>
+            <div class="tag">Forged in Nature</div>
+            <h1 class="text-6xl md:text-8xl font-bold mb-8 leading-[0.9]">
+                NATURAL <br> <span class="sand-accent italic">POWER</span> <br> UNLEASHED
+            </h1>
+            <p class="text-lg md:text-xl opacity-70 mb-12 max-w-md">
+                Rediscover your primal strength. State-of-the-art equipment meets organic training philosophies.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6">
+                <div class="rough-btn sand-btn font-bold px-10 py-4 text-lg">Start Your Journey</div>
+                <div class="rough-btn font-bold px-10 py-4 text-lg">View Classes</div>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="your-image-placeholder w-full aspect-square rotate-3 shadow-xl">
+                [ HERO_GYM_IMAGE ]
+            </div>
+            <!-- Sketchy Decoration -->
+            <div class="absolute -top-10 -right-10 w-20 h-20 border-t-4 border-r-4 border-sand-accent opacity-50"></div>
+             <!-- Stats Sketch -->
+            <div class="absolute -bottom-8 -left-8 forest-bg p-8 hidden md:block">
+                <div class="text-3xl font-bold sand-accent">24/7</div>
+                <div class="text-[10px] uppercase opacity-60">Access</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes/Movement Section -->
+    <section class="max-w-7xl mx-auto mb-32 px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold text-forest-accent mb-4">THE_MOVEMENT</h2>
+            <div class="sketch-line mx-auto w-32"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Strength Card -->
+            <div class="sketch-box p-0 flex flex-col h-[500px] overflow-hidden group">
+                <div class="your-image-placeholder w-full h-1/2">[ STRENGTH_IMAGE ]</div>
+                <div class="p-8 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h3 class="text-4xl font-bold mb-4 italic">STRENGTH</h3>
+                        <p class="opacity-60 text-sm">Heavy lifting, functional movements, and raw power building.</p>
+                    </div>
+                    <div class="border-b-2 border-forest-accent self-start pb-1 text-xs font-bold uppercase tracking-widest mt-6 cursor-pointer hover:forest-accent transition-colors">View Schedule</div>
+                </div>
+            </div>
+            <!-- Flow Card -->
+            <div class="sketch-box p-0 flex flex-col h-[500px] overflow-hidden group">
+                <div class="your-image-placeholder w-full h-1/2">[ FLOW_IMAGE ]</div>
+                <div class="p-8 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h3 class="text-4xl font-bold mb-4 italic">FLOW</h3>
+                        <p class="opacity-60 text-sm">Yoga, mobility, and core stability to find your balance.</p>
+                    </div>
+                    <div class="border-b-2 border-forest-accent self-start pb-1 text-xs font-bold uppercase tracking-widest mt-6 cursor-pointer hover:forest-accent transition-colors">View Schedule</div>
+                </div>
+            </div>
+            <!-- Endurance Card -->
+            <div class="sketch-box p-0 flex flex-col h-[500px] overflow-hidden group">
+                <div class="your-image-placeholder w-full h-1/2">[ ENDURANCE_IMAGE ]</div>
+                <div class="p-8 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h3 class="text-4xl font-bold mb-4 italic">ENDURANCE</h3>
+                        <p class="opacity-60 text-sm">HIIT, cardio, and metabolic conditioning to push your limits.</p>
+                    </div>
+                    <div class="border-b-2 border-forest-accent self-start pb-1 text-xs font-bold uppercase tracking-widest mt-6 cursor-pointer hover:forest-accent transition-colors">View Schedule</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers/Tribe Section -->
+    <section class="max-w-7xl mx-auto mb-32 px-4 forest-bg p-12 md:p-20">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+            <div>
+                <span class="sand-accent font-bold uppercase tracking-widest text-sm">The Guides</span>
+                <h2 class="text-5xl font-bold mt-4 italic text-white">MEET_THE_TRIBE</h2>
+            </div>
+            <div class="rough-btn border-white text-white hover:bg-white hover:text-forest-accent mt-8 md:mt-0">View All Trainers</div>
+        </div>
+        <div class="grid md:grid-cols-4 gap-12">
+            <div class="group">
+                <div class="your-image-placeholder aspect-[3/4] mb-6 shadow-md">[ MITCH ]</div>
+                <h3 class="text-2xl font-bold sand-accent italic">Iron O'Connell</h3>
+                <p class="text-xs opacity-50 uppercase tracking-widest mt-2">Strength Coach</p>
+            </div>
+            <div class="group">
+                <div class="your-image-placeholder aspect-[3/4] mb-6 shadow-md">[ SARAH ]</div>
+                <h3 class="text-2xl font-bold sand-accent italic">Sarah Jenks</h3>
+                <p class="text-xs opacity-50 uppercase tracking-widest mt-2">Yoga & Mobility</p>
+            </div>
+            <div class="group">
+                <div class="your-image-placeholder aspect-[3/4] mb-6 shadow-md">[ DAVID ]</div>
+                <h3 class="text-2xl font-bold sand-accent italic">David Kim</h3>
+                <p class="text-xs opacity-50 uppercase tracking-widest mt-2">HIIT Specialist</p>
+            </div>
+            <div class="group">
+                <div class="your-image-placeholder aspect-[3/4] mb-6 shadow-md">[ JESSICA ]</div>
+                <h3 class="text-2xl font-bold sand-accent italic">Jessica Cole</h3>
+                <p class="text-xs opacity-50 uppercase tracking-widest mt-2">Functional Pro</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="max-w-7xl mx-auto border-t-2 border-dashed border-gray-200 pt-20 pb-12 px-4">
+        <div class="grid md:grid-cols-4 gap-12 mb-20">
+            <div class="md:col-span-2">
+                <h4 class="text-3xl font-bold mb-6 italic tracking-widest">YOUR GYM</h4>
+                <p class="opacity-50 max-w-sm leading-relaxed mb-8">Forging strength through nature and discipline. Join a community that pushes boundaries.</p>
+                <div class="flex gap-4">
+                    <div class="w-10 h-10 sketch-circle flex items-center justify-center opacity-30">IG</div>
+                    <div class="w-10 h-10 sketch-circle flex items-center justify-center opacity-30">TW</div>
+                    <div class="w-10 h-10 sketch-circle flex items-center justify-center opacity-30">YT</div>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold sand-accent uppercase mb-8">Location</h4>
+                <p class="opacity-60 text-sm">123 Forest Path,<br>Green Valley City</p>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold sand-accent uppercase mb-8">Get In Touch</h4>
+                <p class="opacity-60 text-sm mb-2">strength@yourgym.com</p>
+                <p class="opacity-60 text-sm">+1 (555) 019-2834</p>
+            </div>
+        </div>
+        <div class="text-center text-[10px] uppercase tracking-[0.6em] opacity-20 pt-10 border-t border-gray-100">
+            &copy; 2024 Your Gym. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

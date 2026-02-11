@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us | Your Gym</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#1a472a', // Deep Green
+                        moss: '#5d7d54',   // Sage/Moss
+                        sand: '#d4c5a2',   // Beige/Gold-ish
+                        cream: '#f9f7f0',  // Off-white
+                        earth: '#2c2520',  // Dark Brown/Black alternative
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+        body {
+            background-color: #f9f7f0;
+            color: #2c2520;
+        }
+    </style>
+</head>
+
+<body class="antialiased font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-forest/95 backdrop-blur-sm border-b border-sand/10 py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-display font-bold tracking-wider text-white">
+                YOUR <span class="text-sand">GYM</span>
+            </a>
+            
+            <div class="hidden md:flex gap-8 text-sm font-display tracking-widest uppercase items-center text-white/80">
+                <a href="index.html#classes" class="hover:text-sand transition-colors">Classes</a>
+                <a href="index.html#trainers" class="hover:text-sand transition-colors">Trainers</a>
+                <a href="join.html" class="px-6 py-2 bg-sand text-forest font-bold hover:bg-white transition-all duration-300 skew-x-[-10deg]">
+                    <span class="block skew-x-[10deg]">Join Now</span>
+                </a>
+            </div>
+
+            <button class="md:hidden text-2xl text-sand">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-40 pb-20 px-6 text-center bg-forest border-b border-sand/5">
+        <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 text-white">CHOOSE YOUR PATH</h1>
+        <p class="text-sand uppercase tracking-[0.3em] text-sm">Invest In Yourself</p>
+    </header>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-cream">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-24">
+                <!-- Plan 1 -->
+                <div class="bg-white p-8 border border-gray-200 hover:border-moss hover:shadow-xl transition-all duration-300 relative group">
+                    <h3 class="text-xl font-display font-bold text-forest">SEED</h3>
+                    <div class="my-6">
+                        <span class="text-4xl font-bold text-forest">₹1,499</span><span class="text-earth/60">/mo</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm text-earth/80">
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-moss"></i> Gym Access (Off-Peak)</li>
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-moss"></i> 1 Intro Session</li>
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-moss"></i> Locker Access</li>
+                    </ul>
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-moss"></i> Locker Access</li>
+                    </ul>
+                    <button onclick="selectPlan('seed')" class="block w-full py-4 text-center border-2 border-forest text-forest font-bold font-display uppercase tracking-widest hover:bg-forest hover:text-white transition-colors">Select Plan</button>
+                </div>
+
+                <!-- Plan 2 (Featured) -->
+                <div class="bg-forest p-8 border border-forest transform md:-translate-y-4 shadow-2xl relative">
+                    <div class="absolute top-0 right-0 bg-sand text-forest text-xs font-bold uppercase py-1 px-4 tracking-widest">Most Popular</div>
+                    <h3 class="text-xl font-display font-bold text-sand">SAPLING</h3>
+                    <div class="my-6">
+                        <span class="text-5xl font-bold text-white">₹2,499</span><span class="text-white/60">/mo</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm text-white/90">
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sand"></i> 24/7 Gym Access</li>
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sand"></i> Unlimited Classes</li>
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sand"></i> Sauna Access</li>
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sand"></i> Guest Pass (1/mo)</li>
+                    </ul>
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-sand"></i> Guest Pass (1/mo)</li>
+                    </ul>
+                    <button onclick="selectPlan('sapling')" class="block w-full py-4 text-center bg-sand text-forest font-bold font-display uppercase tracking-widest hover:bg-white transition-colors">Select Plan</button>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="bg-white p-8 border border-gray-200 hover:border-moss hover:shadow-xl transition-all duration-300 relative group">
+                    <h3 class="text-xl font-display font-bold text-forest">OAK</h3>
+                    <div class="my-6">
+                        <span class="text-4xl font-bold text-forest">₹4,999</span><span class="text-earth/60">/mo</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm text-earth/80">
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-moss"></i> All Sapling Perks</li>
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-moss"></i> Personal Training (2x/mo)</li>
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-moss"></i> Nutrition Plan</li>
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-moss"></i> Exclusive Merch</li>
+                    </ul>
+                         <li class="flex items-center gap-3"><i class="fa-solid fa-check text-moss"></i> Exclusive Merch</li>
+                    </ul>
+                    <button onclick="selectPlan('oak')" class="block w-full py-4 text-center border-2 border-forest text-forest font-bold font-display uppercase tracking-widest hover:bg-forest hover:text-white transition-colors">Select Plan</button>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="max-w-3xl mx-auto bg-white p-10 border border-gray-100 shadow-lg relative" id="registration-form">
+                <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-forest text-sand px-8 py-2 font-display uppercase tracking-widest font-bold text-sm">
+                    Registration
+                </div>
+                
+                <form class="space-y-6 mt-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                             <label class="text-xs uppercase tracking-widest text-forest font-bold">First Name</label>
+                             <input type="text" class="w-full bg-cream border-b-2 border-forest/10 p-3 focus:outline-none focus:border-moss transition-colors" placeholder="Jane">
+                        </div>
+                        <div class="space-y-2">
+                             <label class="text-xs uppercase tracking-widest text-forest font-bold">Last Name</label>
+                             <input type="text" class="w-full bg-cream border-b-2 border-forest/10 p-3 focus:outline-none focus:border-moss transition-colors" placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase tracking-widest text-forest font-bold">Email Address</label>
+                        <input type="email" class="w-full bg-cream border-b-2 border-forest/10 p-3 focus:outline-none focus:border-moss transition-colors" placeholder="jane.doe@example.com">
+                    </div>
+
+                     <div class="space-y-2">
+                        <label class="text-xs uppercase tracking-widest text-forest font-bold">Selected Plan</label>
+                        <select id="plan-selector" class="w-full bg-cream border-b-2 border-forest/10 p-3 focus:outline-none focus:border-moss transition-colors">
+                            <option value="seed">SEED - ₹1,499/mo</option>
+                            <option value="sapling" selected>SAPLING - ₹2,499/mo</option>
+                            <option value="oak">OAK - ₹4,999/mo</option>
+                        </select>
+                    </div>
+
+                    <button class="w-full bg-forest text-white font-display uppercase tracking-widest font-bold py-4 hover:bg-moss transition-colors mt-8">
+                        Confirm & Pay
+                    </button>
+                    
+                    <p class="text-center text-xs text-earth/50 mt-4">
+                        By clicking "Confirm & Pay", you agree to our Terms of Service.
+                    </p>
+                </form>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-forest text-white py-16 border-t border-white/5 mx-auto">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+            <div class="md:col-span-2">
+                 <a href="index.html" class="text-3xl font-display font-bold tracking-wider text-white mb-6 block">
+                    YOUR <span class="text-sand">GYM</span>
+                </a>
+                <p class="text-white/60 mb-8 max-w-sm">
+                    Forging strength through nature and discipline.
+                </p>
+                <div class="flex gap-4">
+                     <a href="#" class="w-10 h-10 bg-moss/20 flex items-center justify-center rounded-sm hover:bg-sand hover:text-forest transition-all"><i class="fa-brands fa-instagram"></i></a>
+                     <a href="#" class="w-10 h-10 bg-moss/20 flex items-center justify-center rounded-sm hover:bg-sand hover:text-forest transition-all"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-sand font-display uppercase tracking-widest text-sm font-bold mb-6">Contact</h4>
+                <p class="text-white/60 mb-2">+1 (555) 019-2834</p>
+                <p class="text-white/60">strength@yourgym.com</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/5 text-center text-white/40 text-xs uppercase tracking-widest">
+            &copy; 2024 Your Gym. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        function selectPlan(plan) {
+            document.getElementById('plan-selector').value = plan;
+            document.getElementById('registration-form').scrollIntoView({behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>

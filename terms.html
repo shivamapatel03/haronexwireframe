@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Haronex Technology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @media (pointer: fine) {
+            body, a, button, select {
+                cursor: none;
+            }
+        }
+
+        #cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            background-color: black;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background-color 0.3s, transform 0.1s, opacity 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        @media (pointer: coarse) {
+            #cursor {
+                display: none;
+            }
+        }
+
+        #cursor.smile {
+            width: 40px;
+            height: 40px;
+            background-color: #ffd700;
+            transform: translate(-50%, -50%) scale(1.2);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        #cursor.smile::after {
+            content: '\f118';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 20px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-black min-h-screen flex flex-col p-4 md:p-10 selection:bg-black selection:text-white">
+
+    <div id="cursor"></div>
+
+    <header class="flex justify-between items-center mb-12 z-10 hover-trigger">
+        <div class="flex flex-col gap-0.5">
+            <h2 class="font-sans font-semibold tracking-tight text-base md:text-lg">Haronex Technology</h2>
+            <p class="font-sans text-[10px] md:text-xs text-gray-500">Terms & Conditions</p>
+        </div>
+        <a href="index.html" class="font-sans text-xs md:text-sm font-medium hover:underline decoration-1 underline-offset-4 hover-trigger">
+            <i class="fa-solid fa-arrow-left mr-2"></i> Back to Hub
+        </a>
+    </header>
+
+    <main class="flex-grow max-w-4xl z-10">
+        <h1 class="font-serif italic text-4xl md:text-6xl mb-12">Terms & Conditions</h1>
+        
+        <div class="space-y-8 font-sans text-sm md:text-base text-gray-700 leading-relaxed">
+            <section>
+                <h2 class="font-bold text-black mb-4 uppercase tracking-wider text-xs">Agreement to Terms</h2>
+                <p>By accessing Haronex Technology, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our services.</p>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-black mb-4 uppercase tracking-wider text-xs">Intellectual Property</h2>
+                <p>All content on this website, including designs, text, and graphics, is the property of Haronex Technology and is protected by copyright laws.</p>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-black mb-4 uppercase tracking-wider text-xs">User Obligations</h2>
+                <p>Users are expected to use our platform responsibly and not engage in any activities that could harm the integrity of Haronex Hub.</p>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-black mb-4 uppercase tracking-wider text-xs">Limitation of Liability</h2>
+                <p>Haronex Technology shall not be liable for any direct or indirect damages arising from the use or inability to use our website.</p>
+            </section>
+
+            <section>
+                <h2 class="font-bold text-black mb-4 uppercase tracking-wider text-xs">Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Your continued use of the site constitutes acceptance of the updated terms.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="mt-20 py-8 border-t border-gray-100 z-10 hover-trigger">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 font-sans text-[10px] md:text-xs">
+            <p>&copy; 2026 Haronex Technology. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        const triggers = document.querySelectorAll('.hover-trigger, a');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.opacity = '1';
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        triggers.forEach(trigger => {
+            trigger.addEventListener('mouseenter', () => cursor.classList.add('smile'));
+            trigger.addEventListener('mouseleave', () => cursor.classList.remove('smile'));
+        });
+    </script>
+</body>
+
+</html>

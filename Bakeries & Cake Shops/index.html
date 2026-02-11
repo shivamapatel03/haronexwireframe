@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Store | Artisan Bakery & Cakes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cocoa: '#2D1B0E',
+                        honey: '#D4AF37',
+                        cream: '#FFF9F5',
+                        'winter-blue': '#e0f2fe',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --cocoa: #2D1B0E;
+            --honey: #D4AF37;
+            --cream: #FFF9F5;
+            --winter-blue: #e0f2fe;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--cocoa);
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Hero Video Canvas */
+        .hero-wrapper {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.6));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            padding: 0 1rem;
+        }
+
+        /* Modern Card Styling */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .product-card {
+            background: white;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(45, 27, 14, 0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(45, 27, 14, 0.1);
+        }
+
+        .add-btn-mini {
+            width: 32px;
+            height: 32px;
+            background: var(--cocoa);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .add-btn-mini:hover {
+            transform: scale(1.15) rotate(90deg);
+            background: var(--honey);
+        }
+
+        /* Bento Grid Specifics */
+        .bento-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .bento-card:hover {
+            transform: scale(0.98);
+        }
+
+        .frosted-glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-curve {
+            background: var(--cocoa);
+            clip-path: ellipse(150% 100% at 50% 100%);
+            padding-top: 100px;
+        }
+
+        .category-pill {
+            transition: all 0.3s ease;
+        }
+
+        .animate-marquee {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-33.333%); }
+        }
+
+        .category-pill:hover {
+            background-color: var(--cocoa);
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/20 text-white transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-10">
+                <a href="#" class="text-2xl font-black tracking-tighter uppercase serif">Your Store</a>
+                <div class="hidden lg:flex gap-8 text-sm font-semibold uppercase tracking-widest opacity-70">
+                    <a href="#" class="hover:text-honey transition-colors">Shop</a>
+                    <a href="cakes.html" class="hover:text-honey transition-colors">Cakes</a>
+                    <a href="gallary.html" class="hover:text-honey transition-colors">Gallery</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+
+                <button id="mobile-menu-btn" class="lg:hidden text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white text-cocoa p-6 shadow-xl flex-col gap-4 border-t border-cocoa/5">
+            <a href="#" class="font-bold text-lg hover:text-honey transition-colors">Shop</a>
+            <a href="cakes.html" class="font-bold text-lg hover:text-honey transition-colors">Cakes</a>
+            <a href="gallary.html" class="font-bold text-lg hover:text-honey transition-colors">Gallery</a>
+
+        </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-wrapper">
+        <video autoplay muted loop playsinline class="hero-video-bg">
+            <source
+                src="./video/cake.mp4"
+                type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="text-white uppercase tracking-[0.4em] text-xs font-bold mb-4 block">Artisan &
+                Handcrafted</span>
+            <h1 class="text-5xl md:text-8xl font-bold mb-6 leading-tight">Your Store, <br><span
+                    class="italic serif font-light">Your Style</span></h1>
+            <p class="text-white text-lg md:text-xl font-light mb-10 text-opacity-80 max-w-2xl mx-auto">Preview our daily batches of
+                fresh sourdough, decadent pastries, and bespoke celebration cakes before you sell or buy.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                    class="bg-black text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-honey hover:text-white transition-all">Explore
+                    Flavors</button>
+                <button
+                    class="bg-transparent border border-white/40 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition-all">Book
+                    Consultation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Highlights -->
+    <!-- Category Highlights -->
+    <section class="max-w-7xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+                <h2 class="text-4xl font-bold mb-4">Category Highlights</h2>
+                <p class="text-gray-500">Curated selections from our master bakers</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <button
+                    class="category-pill px-8 py-3 rounded-xl border border-cocoa/10 bg-white font-bold text-xs uppercase tracking-widest">Sourdough</button>
+                <button
+                    class="category-pill px-8 py-3 rounded-xl border border-cocoa/10 bg-white font-bold text-xs uppercase tracking-widest">Cakes</button>
+                <button
+                    class="category-pill px-8 py-3 rounded-xl border border-cocoa/10 bg-white font-bold text-xs uppercase tracking-widest">Pastries</button>
+                <button
+                    class="category-pill px-8 py-3 rounded-xl border border-cocoa/10 bg-white font-bold text-xs uppercase tracking-widest">Gifts</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="featured-grid">
+            <!-- Dynamic items -->
+        </div>
+    </section>
+
+    <!-- Winter Sales Bento Grid Section -->
+    <section class="px-6 py-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-12 text-center md:text-left">
+                <h2 class="text-4xl font-bold mb-2 serif">The Winter Edit</h2>
+                <p class="text-gray-500">Curated savings for the coldest days.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px] md:auto-rows-[300px]">
+
+                <!-- Main Feature Bento (2x2) -->
+                <div class="bento-card md:col-span-2 md:row-span-2 bg-sky-600 group relative">
+                    <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?w=1000&q=80"
+                        class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60 group-hover:scale-105 transition-transform duration-700"
+                        alt="Winter Sale">
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <span class="text-sky-100 font-bold uppercase tracking-widest text-xs mb-2">Seasonal
+                            Exclusive</span>
+                        <h3 class="text-5xl font-bold text-white mb-4 leading-none serif">30% OFF <br>Everything</h3>
+                        <p class="text-sky-50 opacity-80 mb-6 max-w-sm">From artisan batards to frosted cinnamon rolls,
+                            warm up your home with our seasonal collection.</p>
+                        <button
+                            class="bg-white text-sky-600 w-fit px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-sky-50 transition-colors">Shop
+                            Sale</button>
+                    </div>
+                </div>
+
+                <!-- Secondary Bento: Hot Items (1x1) -->
+                <div class="bento-card bg-indigo-900 flex items-center justify-center group">
+                    <div class="text-center p-6">
+                        <div class="text-4xl mb-4 group-hover:rotate-12 transition-transform">☕</div>
+                        <h4 class="text-white font-bold text-lg mb-1">Hot Cocoa Kit</h4>
+                        <p class="text-indigo-200 text-xs mb-4">Included with orders over ₹1500</p>
+                        <a href="#"
+                            class="text-white text-[10px] uppercase font-bold tracking-widest border-b border-white/20 pb-1">Claim
+                            Offer</a>
+                    </div>
+                </div>
+
+                <!-- Tertiary Bento: Image Focus (1x1) -->
+                <div class="bento-card relative">
+                    <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=500&q=80"
+                        class="absolute inset-0 w-full h-full object-cover" alt="Cookies">
+                    <div
+                        class="absolute inset-0 bg-black/20 hover:bg-black/40 transition-colors flex items-center justify-center">
+                        <span
+                            class="text-white font-bold border border-white/50 px-4 py-2 rounded-full text-[10px] uppercase tracking-widest backdrop-blur-sm">Gingerbread
+                            Edit</span>
+                    </div>
+                </div>
+
+                <!-- Wide Bento: Newsletter/Membership (2x1) -->
+                <div
+                    class="bento-card md:col-span-2 bg-gradient-to-r from-slate-900 to-slate-800 flex items-center p-8 border border-white/5">
+                    <div class="flex-grow">
+                        <h4 class="text-2xl font-bold text-white mb-2">Inner Circle Perks</h4>
+                        <p class="text-slate-400 text-sm mb-0">Free doorstep delivery all winter long.</p>
+                    </div>
+                    <button
+                        class="frosted-glass text-white px-6 py-3 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-white/20 transition-all">Join
+                        Club</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="bg-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-center text-4xl font-bold mb-16 serif">Community Love</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="p-10 rounded-3xl bg-cream border border-cocoa/5">
+                    <div class="flex gap-1 text-honey text-xs mb-6">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-lg italic mb-8 leading-relaxed opacity-80">"The custom wedding cake was beyond
+                        expectations. Not just a dessert, but a piece of art."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full"></div>
+                        <div>
+                            <p class="font-bold text-sm">Elena Rodriguez</p>
+                            <p class="text-xs text-gray-400">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-10 rounded-3xl bg-cream border border-cocoa/5">
+                    <div class="flex gap-1 text-honey text-xs mb-6">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-lg italic mb-8 leading-relaxed opacity-80">"Best croissants in the city. The
+                        honeycomb texture is absolutely perfect every time."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full"></div>
+                        <div>
+                            <p class="font-bold text-sm">Marcus Thorne</p>
+                            <p class="text-xs text-gray-400">Pastry Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-10 rounded-3xl bg-cream border border-cocoa/5">
+                    <div class="flex gap-1 text-honey text-xs mb-6">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                            class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-lg italic mb-8 leading-relaxed opacity-80">"Customer service is as sweet as their
+                        cupcakes. They truly care about the details."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full"></div>
+                        <div>
+                            <p class="font-bold text-sm">Sarah Jenkins</p>
+                            <p class="text-xs text-gray-400">Local Guide</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="max-w-5xl mx-auto px-6 py-20 text-center">
+        <h2 class="text-sm font-bold uppercase tracking-[0.5em] mb-6 text-honey">The Inner Circle</h2>
+        <h3 class="text-5xl md:text-7xl font-bold mb-10 leading-none serif text-cocoa">JOIN <span
+                class="text-sky-500">NOW</span></h3>
+        <p class="mb-12 text-gray-500 max-w-md mx-auto">Get early access to weekend specials and limited edition flavor
+            drops.</p>
+        <div
+            class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto bg-white p-2 rounded-full shadow-xl shadow-cocoa/5 border border-cocoa/5">
+            <input type="email" placeholder="email@example.com"
+                class="flex-grow px-8 py-4 rounded-full outline-none text-cocoa bg-transparent">
+            <button
+                class="bg-[#d9fd00] text-cocoa font-black uppercase tracking-widest text-[10px] px-10 py-4 rounded-full hover:bg-cocoa hover:text-white transition-all">Subscribe</button>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="py-12 border-t border-cocoa/5 grayscale opacity-30 overflow-hidden whitespace-nowrap">
+        <div class="animate-marquee inline-block font-bold tracking-widest text-xs uppercase">
+            <span class="mx-12">FLOUR & GRAIN CO</span>
+            <span class="mx-12">DAIRY FARMS LTD</span>
+            <span class="mx-12">SWEET ROOTS ORCHARD</span>
+            <span class="mx-12">URBAN COFFEE ROASTERS</span>
+            <!-- Durplicated for seamless loop -->
+            <span class="mx-12">FLOUR & GRAIN CO</span>
+            <span class="mx-12">DAIRY FARMS LTD</span>
+            <span class="mx-12">SWEET ROOTS ORCHARD</span>
+            <span class="mx-12">URBAN COFFEE ROASTERS</span>
+             <!-- Triplicated for seamless loop (just in case wide screens) -->
+            <span class="mx-12">FLOUR & GRAIN CO</span>
+            <span class="mx-12">DAIRY FARMS LTD</span>
+            <span class="mx-12">SWEET ROOTS ORCHARD</span>
+            <span class="mx-12">URBAN COFFEE ROASTERS</span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-curve text-white pb-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+            <div>
+                <h4 class="text-3xl font-black mb-6 serif tracking-tighter">Your Store</h4>
+                <p class="text-white/50 leading-loose">Crafting joy through fire, flour, and passion since 1994. Visit
+                    our flagship store for the full experience.</p>
+            </div>
+            <div>
+                <h5 class="font-bold uppercase tracking-widest text-xs mb-8 text-honey">Contact</h5>
+                <p class="text-white/80 mb-2">xyz address, Suite 400</p>
+                <p class="text-white/80 mb-6">Metropolis City, 10010</p>
+                <p class="text-xl font-bold">+91 xxxxx xxxxx</p>
+            </div>
+            <div>
+                <h5 class="font-bold uppercase tracking-widest text-xs mb-8 text-honey">The Bakery</h5>
+                <ul class="space-y-4 text-white/60">
+                    <li><a href="#" class="hover:text-white transition-colors">Our Process</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Wholesale</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Career</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Sustainability</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold uppercase tracking-widest text-xs mb-8 text-honey">Socials</h5>
+                <div class="flex gap-6 text-2xl">
+                    <a href="#" class="hover:text-honey transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-honey transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-honey transition-colors"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-[10px] uppercase tracking-[0.5em] text-white/20 border-t border-white/5 pt-12">
+            © Your Store Bakery Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+            { id: 1, name: "Honeycomb Cake", price: "₹ 850.00", img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop" },
+            { id: 2, name: "Classic Sourdough", price: "₹ 320.00", img: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600&h=600&fit=crop" },
+            { id: 3, name: "Glazed Croissants", price: "₹ 180.00", img: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=600&fit=crop" },
+            { id: 4, name: "Berry Tart", price: "₹ 250.00", img: "https://images.unsplash.com/photo-1464305795204-6f5bdf7f8740?w=600&h=600&fit=crop" }
+        ];
+
+        function renderProducts() {
+            const grid = document.getElementById('featured-grid');
+            grid.innerHTML = products.map(p => `
+                <div class="product-card group rounded-[2.5rem] overflow-hidden p-3">
+                    <div class="relative rounded-[2rem] overflow-hidden aspect-square mb-6">
+                        <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-cocoa">Best Seller</div>
+                    </div>
+                    <div class="px-4 pb-4 flex justify-between items-end">
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">${p.name}</h3>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.addEventListener('load', () => {
+            renderProducts();
+
+            const nav = document.getElementById('main-nav');
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Mobile Menu Toggle
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+                
+                // Ensure navbar background is solid when menu is open
+                if (!mobileMenu.classList.contains('hidden')) {
+                     nav.classList.add('bg-white', 'text-cocoa');
+                     nav.classList.remove('text-white', 'border-white/20');
+                } else if (window.scrollY <= 50) {
+                     // Revert if at top and menu closed
+                     nav.classList.remove('bg-white', 'text-cocoa');
+                     nav.classList.add('text-white', 'border-white/20');
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('h-20', 'bg-white', 'text-cocoa', 'shadow-md');
+                    nav.classList.remove('text-white', 'border-white/20');
+                } else {
+                    if (mobileMenu.classList.contains('hidden')) {
+                        nav.classList.remove('bg-white', 'text-cocoa', 'shadow-md');
+                        nav.classList.add('text-white', 'border-white/20');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

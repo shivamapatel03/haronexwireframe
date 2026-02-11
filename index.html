@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haronex Technology | Architecture of Next</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'fintech': '#7c3aed', // Purple
+                        'food': '#d97706',    // Amber
+                        'gym': '#16a34a',     // Green
+                        'event': '#ca8a04',   // Gold
+                        'bakery': '#db2777',  // Pink
+                        'build': '#dc2626',   // Red
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+
+        /* Hide Default Cursor on Desktop */
+        @media (pointer: fine) {
+            body, a, button, select {
+                cursor: none;
+            }
+        }
+
+        /* Custom Cursor */
+        #cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            background-color: black;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background-color 0.3s, transform 0.1s, opacity 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            opacity: 0; /* Hide initially */
+        }
+
+        /* Hide Custom Cursor on Touch Devices */
+        @media (pointer: coarse) {
+            #cursor {
+                display: none;
+            }
+        }
+
+        /* SMILE STATE */
+        #cursor.smile {
+            width: 40px;
+            height: 40px;
+            background-color: #ffd700; /* Yellow for smile */
+            transform: translate(-50%, -50%) scale(1.2);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        #cursor.smile::after {
+            content: '\f118'; /* FontAwesome Smile Icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 20px;
+            color: black;
+        }
+
+    </style>
+</head>
+
+<body class="bg-white text-black min-h-screen w-screen flex flex-col p-4 md:p-10 selection:bg-black selection:text-white">
+
+    <!-- Custom Cursor Element -->
+    <div id="cursor"></div>
+
+    <!-- Header -->
+    <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 z-10 hover-trigger shrink-0">
+        <div class="flex flex-col gap-0.5">
+            <h2 class="font-sans font-semibold tracking-tight text-base md:text-lg whitespace-nowrap">Haronex Technology</h2>
+            <p class="font-sans text-[10px] md:text-xs text-gray-500">Global Technology Hub</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4 md:gap-6">
+            <!-- Language Dropdown -->
+            <div class="relative group hover-trigger">
+                <select id="lang-select" class="appearance-none bg-transparent border-none text-xs md:text-sm font-sans font-medium focus:outline-none cursor-pointer md:cursor-none pr-4 hover:underline">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                    <option value="gu">Gujarati</option>
+                </select>
+                <i class="fa-solid fa-chevron-down text-[10px] ml-1 pointer-events-none absolute right-0 top-1 md:top-1.5"></i>
+            </div>
+
+            <a href="mailto:tech@haronex.com" target="_blank" rel="noopener noreferrer" class="font-sans text-[10px] sm:text-xs md:text-sm font-medium hover:underline decoration-1 underline-offset-4 hover-trigger whitespace-nowrap">
+                tech@haronex.com <i class="fa-solid fa-arrow-right -rotate-45 text-[8px] sm:text-[10px] ml-1"></i>
+            </a>
+        </div>
+    </header>
+
+
+
+    <!-- Content Sections -->
+    <main class="flex-grow flex flex-col gap-20 py-10 md:py-20 z-10">
+        
+        <!-- Section 1: Wireframes -->
+        <section id="wireframes" class="w-full">
+            <h2 class="font-sans font-bold text-2xl md:text-3xl mb-8 border-b border-gray-100 pb-4">Wireframes</h2>
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4 w-full">
+                
+                <a href="Accounting, Tax & Legal/wfindex.html" target="_blank" rel="noopener noreferrer" class="card-link group border border-gray-200 rounded-2xl md:rounded-[2rem] p-4 md:p-6 h-32 md:h-48 flex flex-col items-center justify-center gap-2 hover:border-fintech hover:text-fintech hover:bg-fintech/5 transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 font-poppins text-[10px] md:text-xs font-semibold opacity-50 group-hover:opacity-100">01</span>
+                    <img src="images/tax.png" alt="Fintech" class="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <span id="cat-fintech-w" class="font-poppins font-medium text-sm md:text-lg text-center">Fintech</span>
+                </a>
+
+                <a href="Foods/wfindex.html" target="_blank" rel="noopener noreferrer" class="card-link group border border-gray-200 rounded-2xl md:rounded-[2rem] p-4 md:p-6 h-32 md:h-48 flex flex-col items-center justify-center gap-2 hover:border-food hover:text-food hover:bg-food/5 transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 font-poppins text-[10px] md:text-xs font-semibold opacity-50 group-hover:opacity-100">02</span>
+                    <img src="./images/1food.png" alt="Culinary" class="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <span id="cat-food-w" class="font-poppins font-medium text-sm md:text-lg text-center">Foods</span>
+                </a>
+
+                <a href="gym/wfindex.html" target="_blank" rel="noopener noreferrer" class="card-link group border border-gray-200 rounded-2xl md:rounded-[2rem] p-4 md:p-6 h-32 md:h-48 flex flex-col items-center justify-center gap-2 hover:border-gym hover:text-gym hover:bg-gym/5 transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 font-poppins text-[10px] md:text-xs font-semibold opacity-50 group-hover:opacity-100">03</span>
+                    <img src="images/fitness.png" alt="Fitness" class="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <span id="cat-gym-w" class="font-poppins font-medium text-sm md:text-lg text-center">Fitness</span>
+                </a>
+
+                 <a href="Banquet Halls & Party Plots/wfindex.html" target="_blank" rel="noopener noreferrer" class="card-link group border border-gray-200 rounded-2xl md:rounded-[2rem] p-4 md:p-6 h-32 md:h-48 flex flex-col items-center justify-center gap-2 hover:border-event hover:text-event hover:bg-event/5 transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 font-poppins text-[10px] md:text-xs font-semibold opacity-50 group-hover:opacity-100">04</span>
+                    <img src="./images/event.png" alt="Events" class="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <span id="cat-event-w" class="font-poppins font-medium text-sm md:text-lg text-center">Events</span>
+                </a>
+
+                <a href="Bakeries & Cake Shops/wfindex.html" target="_blank" rel="noopener noreferrer" class="card-link group border border-gray-200 rounded-2xl md:rounded-[2rem] p-4 md:p-6 h-32 md:h-48 flex flex-col items-center justify-center gap-2 hover:border-bakery hover:text-bakery hover:bg-bakery/5 transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 font-poppins text-[10px] md:text-xs font-semibold opacity-50 group-hover:opacity-100">05</span>
+                    <img src="images/bakery.png" alt="Bakery" class="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <span id="cat-bakery-w" class="font-poppins font-medium text-sm md:text-lg text-center">Bakery</span>
+                </a>
+
+                <a href="Construction Material/wfindex.html" target="_blank" rel="noopener noreferrer" class="card-link group border border-gray-200 rounded-2xl md:rounded-[2rem] p-4 md:p-6 h-32 md:h-48 flex flex-col items-center justify-center gap-2 hover:border-build hover:text-build hover:bg-build/5 transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 font-poppins text-[10px] md:text-xs font-semibold opacity-50 group-hover:opacity-100">06</span>
+                    <img src="images/industry.png" alt="Industry" class="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <span id="cat-build-w" class="font-poppins font-medium text-sm md:text-lg text-center">Industry</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 2: Demo Websites -->
+        <section id="demos" class="w-full">
+            <h2 class="font-sans font-bold text-2xl md:text-3xl mb-8 border-b border-gray-100 pb-4">Demo Websites</h2>
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4 w-full">
+                
+                <a href="./Accounting, Tax & Legal/index.html" target="_blank" rel="noopener noreferrer" class="card-link group border border-gray-200 rounded-2xl md:rounded-[2rem] p-4 md:p-6 h-32 md:h-48 flex flex-col items-center justify-center gap-2 hover:border-fintech hover:text-fintech hover:bg-fintech/5 transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 font-poppins text-[10px] md:text-xs font-semibold opacity-50 group-hover:opacity-100">01</span>
+                    <img src="images/tax.png" alt="Fintech" class="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <span id="cat-fintech-d" class="font-poppins font-medium text-sm md:text-lg text-center">Fintech</span>
+                </a>
+
+                <a href="./Foods/index.html" target="_blank" rel="noopener noreferrer" class="card-link group border border-gray-200 rounded-2xl md:rounded-[2rem] p-4 md:p-6 h-32 md:h-48 flex flex-col items-center justify-center gap-2 hover:border-food hover:text-food hover:bg-food/5 transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 font-poppins text-[10px] md:text-xs font-semibold opacity-50 group-hover:opacity-100">02</span>
+                    <img src="./images/1food.png" alt="Culinary" class="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <span id="cat-food-d" class="font-poppins font-medium text-sm md:text-lg text-center">Foods</span>
+                </a>
+
+                <a href="./gym/index.html" target="_blank" rel="noopener noreferrer" class="card-link group border border-gray-200 rounded-2xl md:rounded-[2rem] p-4 md:p-6 h-32 md:h-48 flex flex-col items-center justify-center gap-2 hover:border-gym hover:text-gym hover:bg-gym/5 transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 font-poppins text-[10px] md:text-xs font-semibold opacity-50 group-hover:opacity-100">03</span>
+                    <img src="images/fitness.png" alt="Fitness" class="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <span id="cat-gym-d" class="font-poppins font-medium text-sm md:text-lg text-center">Fitness</span>
+                </a>
+
+                 <a href="./Banquet Halls & Party Plots/index.html" target="_blank" rel="noopener noreferrer" class="card-link group border border-gray-200 rounded-2xl md:rounded-[2rem] p-4 md:p-6 h-32 md:h-48 flex flex-col items-center justify-center gap-2 hover:border-event hover:text-event hover:bg-event/5 transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 font-poppins text-[10px] md:text-xs font-semibold opacity-50 group-hover:opacity-100">04</span>
+                    <img src="./images/event.png" alt="Events" class="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <span id="cat-event-d" class="font-poppins font-medium text-sm md:text-lg text-center">Events</span>
+                </a>
+
+                <a href="./Bakeries & Cake Shops/index.html" target="_blank" rel="noopener noreferrer" class="card-link group border border-gray-200 rounded-2xl md:rounded-[2rem] p-4 md:p-6 h-32 md:h-48 flex flex-col items-center justify-center gap-2 hover:border-bakery hover:text-bakery hover:bg-bakery/5 transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 font-poppins text-[10px] md:text-xs font-semibold opacity-50 group-hover:opacity-100">05</span>
+                    <img src="images/bakery.png" alt="Bakery" class="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <span id="cat-bakery-d" class="font-poppins font-medium text-sm md:text-lg text-center">Bakery</span>
+                </a>
+
+                <a href="./Construction Material/index.html" target="_blank" rel="noopener noreferrer" class="card-link group border border-gray-200 rounded-2xl md:rounded-[2rem] p-4 md:p-6 h-32 md:h-48 flex flex-col items-center justify-center gap-2 hover:border-build hover:text-build hover:bg-build/5 transition-all duration-300 relative">
+                    <span class="absolute top-4 left-4 font-poppins text-[10px] md:text-xs font-semibold opacity-50 group-hover:opacity-100">06</span>
+                    <img src="images/industry.png" alt="Industry" class="w-12 h-12 md:w-20 md:h-20 object-contain drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+                    <span id="cat-build-d" class="font-poppins font-medium text-sm md:text-lg text-center">Industry</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-8 border-t border-gray-100 z-10 hover-trigger">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 font-sans text-[10px] md:text-xs">
+            <p>&copy; 2026 Haronex Technology. All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="privacy.html" class="hover:text-black transition-colors duration-200">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-black transition-colors duration-200">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        const triggers = document.querySelectorAll('.card-link, .hover-trigger');
+        const langSelect = document.getElementById('lang-select');
+
+        // Translations
+        const translations = {
+            en: {
+                subtitle: "Architecting the digital foundation for six major industries.",
+                fintech: "Fintech",
+                food: "Culinary",
+                gym: "Fitness",
+                event: "Events",
+                bakery: "Bakery",
+                build: "Industry"
+            },
+            hi: {
+                subtitle: "छह प्रमुख उद्योगों के लिए डिजिटल नींव का निर्माण।",
+                fintech: "फिनटेक",
+                food: "पाककला",
+                gym: "फिटनेस",
+                event: "आयोजन",
+                bakery: "बेकरी",
+                build: "उद्योग"
+            },
+            gu: {
+                subtitle: "છ મુખ્ય ઉદ્યોગો માટે ડિજિટલ ફાઉન્ડેશનનું નિર્માણ.",
+                fintech: "ફિનટેક",
+                food: "રસોઈકળા",
+                gym: "ફિટનેસ",
+                event: "પ્રસંગો",
+                bakery: "બેકરી",
+                build: "ઉદ્યોગ"
+            }
+        };
+
+        // Language Switcher
+        langSelect.addEventListener('change', (e) => {
+            const lang = e.target.value;
+            const t = translations[lang];
+            
+            // Wireframes section
+            document.getElementById('cat-fintech-w').textContent = t.fintech;
+            document.getElementById('cat-food-w').textContent = t.food;
+            document.getElementById('cat-gym-w').textContent = t.gym;
+            document.getElementById('cat-event-w').textContent = t.event;
+            document.getElementById('cat-bakery-w').textContent = t.bakery;
+            document.getElementById('cat-build-w').textContent = t.build;
+
+            // Demos section
+            document.getElementById('cat-fintech-d').textContent = t.fintech;
+            document.getElementById('cat-food-d').textContent = t.food;
+            document.getElementById('cat-gym-d').textContent = t.gym;
+            document.getElementById('cat-event-d').textContent = t.event;
+            document.getElementById('cat-bakery-d').textContent = t.bakery;
+            document.getElementById('cat-build-d').textContent = t.build;
+        });
+
+        // Move Cursor
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.opacity = '1'; // Show on move
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Hover Effects
+        triggers.forEach(trigger => {
+            trigger.addEventListener('mouseenter', () => {
+                cursor.classList.add('smile');
+            });
+            trigger.addEventListener('mouseleave', () => {
+                cursor.classList.remove('smile');
+            });
+        });
+    </script>
+</body>
+</html>

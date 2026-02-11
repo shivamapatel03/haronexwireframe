@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketch | Banquet Wireframe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Architects Daughter', cursive;
+            background-color: #fff;
+            color: #0f172a; /* Midnight grit */
+        }
+        
+        .sketch-box {
+            border: 2px solid #64748b;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .sketch-line {
+            border-bottom: 2px solid #94a3b8;
+            width: 100%;
+            height: 2px;
+            margin: 1rem 0;
+            transform: rotate(-0.5deg);
+        }
+
+        .sketch-circle {
+            border: 2px solid #64748b;
+            border-radius: 50% 45% 52% 48% / 48% 52% 45% 50%;
+        }
+
+        .your-image-placeholder {
+            background-color: #f8fafc;
+            border: 2px dashed #fbbf24;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            color: #fbbf24;
+        }
+
+        .gold-accent {
+            color: #fbbf24;
+        }
+        
+        .gold-bg {
+            background-color: #fffbeb;
+            border: 2px solid #fbbf24;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        }
+
+        .rough-btn {
+            border: 2px solid #0f172a;
+            border-radius: 120px 20px 100px 30px / 30px 110px 20px 120px;
+            padding: 0.75rem 2rem;
+            transition: transform 0.2s;
+            display: inline-block;
+            text-align: center;
+        }
+        .rough-btn:active { transform: scale(0.98); }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <!-- Sketch Header -->
+    <header class="max-w-7xl mx-auto flex justify-between items-center mb-20 px-4">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 sketch-box flex items-center justify-center font-bold text-xl">YB</div>
+            <div class="text-2xl font-bold tracking-widest text-gray-800">YOUR BANQUETS</div>
+        </div>
+        <nav class="hidden md:flex gap-12 text-lg">
+            <span>[ ABOUT ]</span>
+            <span>[ VENUES ]</span>
+            <span>[ SERVICES ]</span>
+        </nav>
+        <div class="rough-btn font-bold text-sm bg-gray-50 uppercase tracking-widest border-2 border-gold-accent gold-accent">BOOK NOW</div>
+    </header>
+
+    <!-- Sketch Hero -->
+    <section class="max-w-7xl mx-auto mb-32 px-4 text-center">
+        <div class="text-sm font-bold opacity-50 mb-6 tracking-[0.4em] uppercase">Where Memories Are Made</div>
+        <h1 class="text-5xl md:text-8xl font-bold mb-8 leading-tight">
+            Celebrations <br> <span class="gold-accent italic">Redefined</span>
+        </h1>
+        <div class="your-image-placeholder w-full max-w-2xl h-64 mx-auto mb-12 opacity-80">
+            [ HERO LUXURY PATTERN / VIDEO ]
+        </div>
+        <p class="text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto opacity-70">
+            Experience the epitome of elegance and grandeur. Our venues are designed to transform your special moments.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <div class="rough-btn bg-gold text-midnight font-bold px-10 py-5">Explore Venues</div>
+            <div class="rough-btn font-bold px-10 py-5">Inquire Now</div>
+        </div>
+    </section>
+
+    <!-- Sketch About Section -->
+    <section class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center mb-32 px-4">
+        <div class="relative">
+            <div class="your-image-placeholder w-full aspect-[4/3]">
+                [ ELEGANT SETTING IMAGE ]
+            </div>
+            <!-- Decorative Sketch marks -->
+            <div class="absolute -top-4 -left-4 w-20 h-20 border-t-4 border-l-4 border-gold-accent opacity-30"></div>
+            <div class="absolute -bottom-4 -right-4 w-20 h-20 border-b-4 border-r-4 border-gold-accent opacity-30"></div>
+        </div>
+        <div>
+            <div class="text-xs font-bold gold-accent uppercase tracking-widest mb-4">Our Legacy</div>
+            <h2 class="text-5xl font-bold mb-8 leading-tight">A Symphony of <br> <span class="opacity-40 italic">Luxury & Style</span></h2>
+            <p class="opacity-70 leading-relaxed mb-10 text-lg">
+                For over two decades, Your Banquets has been the backdrop for the city's most prestigious events. We don't just host parties; we curate experiences.
+            </p>
+            <div class="grid grid-cols-3 gap-8">
+                <div>
+                    <div class="text-4xl font-bold gold-accent">500+</div>
+                    <div class="text-[10px] uppercase opacity-50">Weddings</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gold-accent">10K+</div>
+                    <div class="text-[10px] uppercase opacity-50">Guests</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gold-accent">25+</div>
+                    <div class="text-[10px] uppercase opacity-50">Awards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sketch Venues -->
+    <section class="max-w-7xl mx-auto mb-32 px-4">
+        <div class="text-center mb-16">
+            <div class="text-xs font-bold uppercase tracking-widest gold-accent">The Collection</div>
+            <h2 class="text-5xl font-bold mt-4 italic">Select Your Stage</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="sketch-box p-0 flex flex-col h-[500px] overflow-hidden">
+                <div class="your-image-placeholder w-full h-1/2">[ BALLROOM IMAGE ]</div>
+                <div class="p-8 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-2 italic">The Grand Ballroom</h3>
+                        <div class="text-xs gold-accent font-bold mb-6">Capacity: 500</div>
+                    </div>
+                    <div class="text-xs border-b border-black pb-1 self-start uppercase font-bold">View Details</div>
+                </div>
+            </div>
+            <div class="sketch-box p-0 flex flex-col h-[500px] overflow-hidden gold-bg">
+                <div class="your-image-placeholder w-full h-1/2 opacity-30">[ GARDEN IMAGE ]</div>
+                <div class="p-8 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-2 italic">The Royal Garden</h3>
+                        <div class="text-xs gold-accent font-bold mb-6">Capacity: 1000</div>
+                    </div>
+                    <div class="text-xs border-b border-black pb-1 self-start uppercase font-bold">View Details</div>
+                </div>
+            </div>
+            <div class="sketch-box p-0 flex flex-col h-[500px] overflow-hidden">
+                <div class="your-image-placeholder w-full h-1/2">[ LOUNGE IMAGE ]</div>
+                <div class="p-8 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-2 italic">The Sapphire Lounge</h3>
+                        <div class="text-xs gold-accent font-bold mb-6">Capacity: 100</div>
+                    </div>
+                    <div class="text-xs border-b border-black pb-1 self-start uppercase font-bold">View Details</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sketch Footer -->
+    <footer class="max-w-7xl mx-auto border-t-2 border-dashed border-gray-200 pt-20 pb-12 px-4">
+        <div class="grid md:grid-cols-4 gap-12 mb-20">
+            <div class="md:col-span-2">
+                <h4 class="text-4xl font-bold mb-6 italic tracking-widest">YOUR BANQUETS</h4>
+                <p class="opacity-50 max-w-sm leading-relaxed mb-8">Creating legendary moments in spaces designed for royalty. Book a tour today.</p>
+                <div class="flex gap-4">
+                    <div class="w-10 h-10 sketch-circle flex items-center justify-center opacity-30">IG</div>
+                    <div class="w-10 h-10 sketch-circle flex items-center justify-center opacity-30">FB</div>
+                    <div class="w-10 h-10 sketch-circle flex items-center justify-center opacity-30">LI</div>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold gold-accent uppercase mb-8">Contact</h4>
+                <ul class="space-y-4 text-sm opacity-60">
+                    <li>events@banquets.com</li>
+                    <li>+91 xxxx xxxx</li>
+                    <li>Metropolis City</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold gold-accent uppercase mb-8">Newsletter</h4>
+                <div class="flex flex-col gap-4">
+                    <div class="sketch-box p-3 text-xs opacity-40">Your Email...</div>
+                    <div class="rough-btn gold-bg font-bold text-xs">Subscribe</div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-[10px] uppercase tracking-[0.5em] opacity-20 pt-10 border-t border-gray-100">
+            &copy; 2024 Your Banquets. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

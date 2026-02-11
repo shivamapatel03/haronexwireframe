@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUR NAME | Build Stronger.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        graphite: '#1a1a1a',
+                        concrete: '#2a2a2a',
+                        safety: '#ff4d00',  // High-vis Orange
+                        electric: '#00d4ff', // Electric Blue
+                        steel: '#64748b',
+                    },
+                    fontFamily: {
+                        sans: ['Rajdhani', 'sans-serif'],
+                        display: ['Anton', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'metal-pattern': "url('https://www.transparenttextures.com/patterns/dark-matter.png')", 
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+            color: transparent;
+        }
+
+        .industrial-border {
+            border: 2px solid #2a2a2a;
+            position: relative;
+        }
+
+        .industrial-border::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px;
+            width: 10px; height: 10px;
+            border-top: 2px solid #ff4d00;
+            border-left: 2px solid #ff4d00;
+        }
+
+        .industrial-border::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; right: -2px;
+            width: 10px; height: 10px;
+            border-bottom: 2px solid #ff4d00;
+            border-right: 2px solid #ff4d00;
+        }
+
+        .diagonal-stripes {
+            background: repeating-linear-gradient(
+                45deg,
+                #1a1a1a,
+                #1a1a1a 10px,
+                #2a2a2a 10px,
+                #2a2a2a 20px
+            );
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-safety selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-6 py-4 bg-graphite/90 backdrop-blur-md border-b-4 border-safety">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-4xl font-display uppercase tracking-wider flex items-center gap-2">
+                <i class="fa-solid fa-layer-group text-safety"></i> YOUR NAME
+            </a>
+            
+            <div class="hidden md:flex gap-8 text-lg font-bold uppercase tracking-widest">
+                <a href="#materials" class="hover:text-safety transition-colors">Materials</a>
+                <a href="#projects" class="hover:text-safety transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-safety transition-colors">Contact</a>
+            </div>
+
+            <a href="quote.html" class="bg-safety text-white px-6 py-2 font-bold uppercase tracking-widest skew-x-[-10deg] hover:bg-white hover:text-safety transition-colors">
+                <span class="skew-x-[10deg] block">Get Quote</span>
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-safety">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-graphite border-b border-safety/20 p-6 flex-col gap-4 shadow-xl">
+             <a href="#materials" class="block text-white hover:text-safety transition-colors py-2 border-b border-white/5 uppercase font-bold">Materials</a>
+             <a href="#projects" class="block text-white hover:text-safety transition-colors py-2 border-b border-white/5 uppercase font-bold">Projects</a>
+             <a href="#contact" class="block text-white hover:text-safety transition-colors py-2 border-b border-white/5 uppercase font-bold">Contact</a>
+             <a href="quote.html" class="block text-safety font-bold py-2 mt-2 uppercase">Get Quote</a>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="fixed bottom-8 right-8 w-12 h-12 bg-safety text-white rounded skew-x-[-10deg] shadow-2xl z-[100] flex items-center justify-center hover:scale-110 transition-transform duration-300">
+            <i id="theme-icon" class="fa-solid fa-moon text-xl skew-x-[10deg]"></i>
+        </button>
+    </nav>
+
+    <style>
+        /* Light Mode Overrides */
+        html.light body {
+            background-color: #f1f5f9;
+            color: #1a1a1a;
+        }
+        html.light .bg-graphite { background-color: #ffffff; }
+        html.light .bg-concrete { background-color: #e2e8f0; }
+        html.light .text-white { color: #1a1a1a; }
+        html.light .text-gray-400 { color: #4b5563; }
+        html.light .text-gray-500 { color: #6b7280; }
+        html.light .text-gray-600 { color: #9ca3af; }
+        html.light .border-white\/10 { border-color: rgba(26, 26, 26, 0.1); }
+        html.light .border-white\/5 { border-color: rgba(26, 26, 26, 0.05); }
+        html.light nav {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-bottom-color: #ff4d00;
+        }
+        html.light .industrial-border { border-color: #e2e8f0; }
+        html.light .text-stroke { -webkit-text-stroke: 1px rgba(26, 26, 26, 0.1); }
+        html.light .diagonal-stripes {
+            background: repeating-linear-gradient(45deg, #ffffff, #ffffff 10px, #f1f5f9 10px, #f1f5f9 20px);
+        }
+        html.light .bg-gray-800 { background-color: #cbd5e1; }
+        html.light #mobile-menu { background-color: #ffffff; }
+    </style>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            html.classList.add('light');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('light');
+            const isLight = html.classList.contains('light');
+            
+            if (isLight) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('flex');
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="w-full h-full object-cover opacity-30 grayscale mix-blend-multiply">
+            <div class="absolute inset-0 bg-gradient-to-t from-graphite via-transparent to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-block px-3 py-1 bg-concrete border border-white/10 text-safety font-bold uppercase text-sm tracking-[0.2em] mb-6">
+                    // Ready for Heavy Duty
+                </span>
+                <h1 class="text-7xl md:text-[9rem] font-display uppercase leading-[0.85] mb-8">
+                    BUILD <br> <span class="text-stroke">THE</span> <br> <span class="text-safety">FUTURE</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-lg mb-12 font-medium border-l-4 border-electric pl-6">
+                    Premium grade steel, concrete, and industrial supplies for projects that demand absolute strength.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#materials" class="bg-white text-graphite px-8 py-4 font-bold uppercase tracking-widest hover:bg-safety hover:text-white transition-colors">
+                        View Catalog
+                    </a>
+                </div>
+            </div>
+
+            <!-- Floating Stats/Graphic -->
+            <div class="hidden md:block relative">
+                <div class="absolute -inset-4 bg-safety/20 blur-xl rounded-full"></div>
+                <div class="relative bg-concrete p-8 industrial-border">
+                    <div class="grid grid-cols-2 gap-8 text-center">
+                        <div class="p-4 bg-graphite border border-white/5">
+                            <span class="block text-5xl font-display text-white">50K+</span>
+                            <span class="text-sm text-gray-500 uppercase">Tons Supplied</span>
+                        </div>
+                        <div class="p-4 bg-graphite border border-white/5">
+                            <span class="block text-5xl font-display text-electric">24hr</span>
+                            <span class="text-sm text-gray-500 uppercase">Delivery</span>
+                        </div>
+                        <div class="col-span-2 p-4 bg-safety text-white">
+                            <span class="block text-3xl font-display">ISO 9001 CERTIFIED</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Material Arsenal -->
+    <section id="materials" class="py-32 px-6 bg-concrete relative">
+        <div class="absolute top-0 left-0 w-full h-4 bg-safety diagonal-stripes"></div>
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16 border-b border-white/10 pb-8">
+                <h2 class="text-6xl font-display uppercase">Material Arsenal</h2>
+                <div class="text-right hidden md:block">
+                    <span class="block text-safety text-xl font-bold">/// CATALOG_V2</span>
+                    <span class="text-gray-500 text-sm">UPDATED 2024</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group bg-graphite border border-white/5 hover:border-safety transition-colors duration-300 relative overflow-hidden">
+                    <div class="aspect-[4/3] bg-gray-800 relative">
+                        <img src="https://images.unsplash.com/photo-1535732759880-bbd5c7265e3f?w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0">
+                        <div class="absolute bottom-0 left-0 bg-safety text-white px-4 py-1 text-xs font-bold uppercase">In Stock</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-3xl font-display uppercase mb-2">Structural Steel</h3>
+                        <p class="text-gray-400 text-sm mb-6">I-Beams, Rebar, and custom fabrication for skeletal integrity.</p>
+                        <a href="#" class="text-electric font-bold uppercase text-sm tracking-widest hover:text-white flex items-center gap-2">
+                            Specs PDF <i class="fa-solid fa-file-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group bg-graphite border border-white/5 hover:border-safety transition-colors duration-300 relative overflow-hidden">
+                    <div class="aspect-[4/3] bg-gray-800 relative">
+                        <img src="https://images.unsplash.com/photo-1517646331032-9e8563c523a1?w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0">
+                        <div class="absolute bottom-0 left-0 bg-safety text-white px-4 py-1 text-xs font-bold uppercase">Bulk Ready</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-3xl font-display uppercase mb-2">High-Grade Concrete</h3>
+                        <p class="text-gray-400 text-sm mb-6">Pre-mix and aggregates engineered for maximum load bearing.</p>
+                        <a href="#" class="text-electric font-bold uppercase text-sm tracking-widest hover:text-white flex items-center gap-2">
+                            Specs PDF <i class="fa-solid fa-file-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group bg-graphite border border-white/5 hover:border-safety transition-colors duration-300 relative overflow-hidden">
+                    <div class="aspect-[4/3] bg-gray-800 relative">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0">
+                         <div class="absolute bottom-0 left-0 bg-electric text-graphite px-4 py-1 text-xs font-bold uppercase">Special Order</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-3xl font-display uppercase mb-2">Heavy Machinery</h3>
+                        <p class="text-gray-400 text-sm mb-6">Leasing and sales of excavators, cranes, and loaders.</p>
+                        <a href="#" class="text-electric font-bold uppercase text-sm tracking-widest hover:text-white flex items-center gap-2">
+                            View Fleet <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects / Impact -->
+    <section id="projects" class="py-32 px-6 bg-graphite relative overflow-hidden">
+        <!-- Big background text -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-display text-white opacity-[0.03] select-none pointer-events-none whitespace-nowrap">
+            BUILT TOUGH
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                     <span class="text-safety font-bold uppercase tracking-widest text-sm mb-4 block">// CASE STUDY</span>
+                     <h2 class="text-5xl md:text-7xl font-display uppercase mb-8">Skyline Bridge</h2>
+                     <div class="flex gap-8 mb-8">
+                         <div>
+                             <span class="block text-4xl font-display text-electric">450</span>
+                             <span class="text-gray-500 text-sm uppercase">Days</span>
+                         </div>
+                         <div>
+                             <span class="block text-4xl font-display text-electric">12K</span>
+                             <span class="text-gray-500 text-sm uppercase">Tons Steel</span>
+                         </div>
+                     </div>
+                     <p class="text-gray-400 text-lg mb-8">
+                         Supplied critical infrastructure materials for the city's largest suspension bridge. Delivered on time, under budget, and with zero safety incidents.
+                     </p>
+                     <a href="#" class="inline-block border-b-2 border-safety text-white hover:text-safety transition-colors pb-1 uppercase tracking-widest font-bold">View Project Gallery</a>
+                </div>
+                <div class="industrial-border p-2">
+                    <img src="https://images.unsplash.com/photo-1590059390047-6058a0650e87?w=800&q=80" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-concrete pt-24 pb-12 px-6 border-t-8 border-safety">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
+            <div class="md:col-span-2">
+                 <a href="#" class="text-5xl font-display uppercase tracking-wider flex items-center gap-2 mb-6">
+                    <i class="fa-solid fa-layer-group text-safety"></i> YOUR NAME
+                </a>
+                <p class="text-gray-400 max-w-sm">
+                    Forging the foundation of tomorrow. <br> 
+                    Your partner in heavy construction.
+                </p>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-display text-xl uppercase tracking-wider mb-6">Contact</h4>
+                <ul class="space-y-4 text-gray-400 font-medium">
+                    <li><i class="fa-solid fa-location-dot text-safety w-6"></i> 89 Industrial Park, Sector 4</li>
+                    <li><i class="fa-solid fa-phone text-safety w-6"></i> +1 (800) 555-BUILD</li>
+                    <li><i class="fa-solid fa-envelope text-safety w-6"></i> [EMAIL_ADDRESS]</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-display text-xl uppercase tracking-wider mb-6">Hours</h4>
+                <ul class="space-y-4 text-gray-400 font-medium">
+                    <li>Mon - Fri: 06:00 - 18:00</li>
+                    <li>Sat: 07:00 - 14:00</li>
+                    <li>Sun: Closed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto border-t border-white/10 pt-8 flex justify-between items-center text-sm text-gray-600 uppercase tracking-widest">
+            <p>YOUR NAME.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-safety transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                <a href="#" class="hover:text-safety transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

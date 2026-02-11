@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketch | Fintech Wireframe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Architects Daughter', cursive;
+            background-color: #fff;
+            color: #4b5563; /* Graphite gray */
+        }
+        
+        .sketch-box {
+            border: 2px solid #6b7280;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .sketch-line {
+            border-bottom: 2px solid #9ca3af;
+            width: 100%;
+            height: 2px;
+            margin: 1rem 0;
+            transform: rotate(-0.5deg);
+        }
+
+        .sketch-circle {
+            border: 2px solid #6b7280;
+            border-radius: 50% 45% 52% 48% / 48% 52% 45% 50%;
+        }
+
+        .your-image-placeholder {
+            background-color: #f3f4f6;
+            border: 2px dashed #9ca3af;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            color: #9ca3af;
+            aspect-ratio: 1 / 1;
+        }
+
+        .pencil-blue {
+            color: #3b82f6; /* Pencil Blue accent */
+        }
+        
+        .pencil-blue-bg {
+            background-color: #eff6ff;
+            border: 2px solid #3b82f6;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        }
+
+        .rough-btn {
+            border: 2px solid #4b5563;
+            border-radius: 120px 20px 100px 30px / 30px 110px 20px 120px;
+            padding: 0.75rem 2rem;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+        .rough-btn:active { transform: scale(0.98); }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <!-- Sketch Header -->
+    <header class="max-w-7xl mx-auto flex justify-between items-center mb-20 px-4">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 sketch-box flex items-center justify-center font-bold text-xl">NX</div>
+            <div class="text-2xl font-bold tracking-widest text-gray-800">YOUR NAME</div>
+        </div>
+        <nav class="hidden md:flex gap-12 text-lg">
+            <span>[ SERVICES ]</span>
+            <span>[ AUDIT ]</span>
+            <span>[ CONTACT ]</span>
+        </nav>
+        <div class="rough-btn font-bold text-sm bg-gray-50 uppercase tracking-widest">Client Portal</div>
+    </header>
+
+    <!-- Sketch Hero -->
+    <section class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center mb-32 px-4">
+        <div>
+            <div class="text-sm font-bold opacity-50 mb-4 inline-block border-b border-gray-300">SYSTEM_OPTIMIZED</div>
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8">
+                NUMBERS <br> DON'T <span class="pencil-blue">LIE.</span>
+            </h1>
+            <div class="text-2xl opacity-70 mb-10 max-w-lg leading-relaxed">
+                WE MAKE THEM PERFORM. 
+                Next-gen accounting and tax strategy for the digital age.
+            </div>
+            <div class="flex flex-wrap gap-6">
+                <div class="rough-btn bg-gray-800 text-white text-lg px-10 py-5">Start Scale Protocol _></div>
+                <div class="rough-btn text-lg px-10 py-5">Execute Audit</div>
+            </div>
+        </div>
+        <div class="relative flex justify-center">
+            <div class="w-72 h-72 sketch-circle border-4 border-gray-200 flex items-center justify-center">
+                <div class="text-center">
+                    <div class="text-6xl font-bold">35%</div>
+                    <div class="text-sm uppercase tracking-widest text-pencil-blue">Avg Tax Saved</div>
+                </div>
+            </div>
+            <!-- Sketchy Arrow decoration -->
+            <div class="absolute -bottom-10 -left-10 text-4xl transform -rotate-12 opacity-30">(_IMAGE_PLACEHOLDER_)</div>
+        </div>
+    </section>
+
+    <!-- Sketch Stats -->
+    <section class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-32 px-4">
+        <div class="sketch-box text-center bg-gray-50/50">
+            <div class="text-4xl font-bold mb-2">$500M+</div>
+            <div class="text-sm uppercase tracking-wide opacity-50">Assets Managed</div>
+        </div>
+        <div class="sketch-box text-center pencil-blue-bg">
+            <div class="text-4xl font-bold mb-2">0%</div>
+            <div class="text-sm uppercase tracking-wide opacity-50">Audit Fail Rate</div>
+        </div>
+        <div class="sketch-box text-center bg-gray-50/50">
+            <div class="text-4xl font-bold mb-2">24/7</div>
+            <div class="text-sm uppercase tracking-wide opacity-50">Portal Access</div>
+        </div>
+    </section>
+
+    <!-- Sketch Services -->
+    <section class="max-w-7xl mx-auto mb-32 px-4">
+        <h2 class="text-4xl font-bold mb-4 border-b-2 border-dashed border-gray-300 pb-4 inline-block">THE_ARCHITECTURE</h2>
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+            
+            <div class="sketch-box flex flex-col items-center text-center">
+                <div class="your-image-placeholder w-20 h-20 mb-6">
+                    [ YOUR IMAGE ]
+                </div>
+                <h3 class="text-2xl font-bold mb-4">STRATEGIC TAX</h3>
+                <div class="sketch-line"></div>
+                <p class="opacity-70 text-sm">Next-level tax restructuring and international law strategy.</p>
+            </div>
+
+            <div class="sketch-box flex flex-col items-center text-center">
+                <div class="your-image-placeholder w-20 h-20 mb-6">
+                    [ YOUR IMAGE ]
+                </div>
+                <h3 class="text-2xl font-bold mb-4">LEGAL DEFENSE</h3>
+                <div class="sketch-line"></div>
+                <p class="opacity-70 text-sm">Ironclad contracts and IP protection built for the modern era.</p>
+            </div>
+
+            <div class="sketch-box flex flex-col items-center text-center">
+                <div class="your-image-placeholder w-20 h-20 mb-6">
+                    [ YOUR IMAGE ]
+                </div>
+                <h3 class="text-2xl font-bold mb-4">FORENSIC AUDIT</h3>
+                <div class="sketch-line"></div>
+                <p class="opacity-70 text-sm">Deep-dive analysis to uncover hidden value in your data.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sketch Footer -->
+    <footer class="max-w-7xl mx-auto border-t-2 border-dashed border-gray-200 pt-20 pb-10 px-4">
+        <div class="grid md:grid-cols-2 gap-20 mb-20">
+            <div>
+                <div class="text-sm font-bold opacity-30 mb-8 tracking-widest">/// INITIATE_CONTACT</div>
+                <h2 class="text-5xl font-bold mb-10">READY TO <span class="pencil-blue">UPGRADE?</span></h2>
+                <div class="text-3xl font-bold border-b-2 border-gray-800 pb-2 inline-block">scale@yourname.com</div>
+            </div>
+            <div class="flex flex-col justify-center md:items-end text-sm opacity-50 gap-2">
+                <div>HQ: METROPOLIS TOWER / LVL 42</div>
+                <div>GLOBAL: DIGITALLY_NATIVE</div>
+            </div>
+        </div>
+        <div class="flex justify-between items-center text-xs opacity-40 pt-10 border-t border-gray-100">
+            <div>[C] 2026 YOUR NAME PROTOCOL</div>
+            <div class="flex gap-10">
+                <span>LINKEDIN</span>
+                <span>TWITTER</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

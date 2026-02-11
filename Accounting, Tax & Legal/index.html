@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS | Future Finance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        void: '#0b0e14',      // Darker than black
+                        slate: '#1e293b',     // Secondary dark
+                        neon: '#ccff00',      // Electric Lime
+                        cyber: '#7000ff',     // Electric Purple
+                        glass: 'rgba(255, 255, 255, 0.05)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #1e293b 1px, transparent 1px), linear-gradient(to bottom, #1e293b 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+        body {
+            background-color: #0b0e14;
+            color: #ffffff;
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px rgba(204, 255, 0, 0.5);
+        }
+        
+        .cyber-glow {
+            box-shadow: 0 0 20px rgba(112, 0, 255, 0.3);
+        }
+
+        .grid-bg {
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, transparent, black, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black, transparent);
+        }
+
+        .card-hover:hover {
+            border-color: #ccff00;
+            box-shadow: 0 0 30px rgba(204, 255, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="antialiased font-sans overflow-x-hidden selection:bg-neon selection:text-void">
+
+    <!-- Background Grid -->
+    <div class="fixed inset-0 grid-bg bg-grid-pattern opacity-20 pointer-events-none z-0"></div>
+
+    <!-- Glowing Orbs -->
+    <div class="fixed top-0 left-0 w-[500px] h-[500px] bg-cyber rounded-full blur-[150px] opacity-20 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+    <div class="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon rounded-full blur-[150px] opacity-10 translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-6 py-6 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-display font-bold tracking-tighter flex items-center gap-2">
+                <span class="text-neon">//</span> YOUR NAME 
+            </a>
+            
+            <div class="hidden md:flex gap-10 text-sm font-mono text-gray-400">
+                <a href="#services" class="hover:text-neon transition-colors">[ SERVICES ]</a>
+                <a href="#compliance" class="hover:text-neon transition-colors">[ AUDIT ]</a>
+                <a href="#contact" class="hover:text-neon transition-colors text-white">[ CONTACT_US ]</a>
+            </div>
+
+            <button class="px-6 py-2 border border-white/20 rounded text-xs font-mono font-bold hover:bg-neon hover:text-void hover:border-neon transition-all uppercase tracking-widest">
+                Client_Portal
+            </button>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-neon">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-void border-b border-white/10 p-6 flex-col gap-4 shadow-xl backdrop-blur-xl">
+             <a href="#services" class="block text-gray-400 hover:text-neon transition-colors py-2 border-b border-white/5 font-mono">[ SERVICES ]</a>
+             <a href="#compliance" class="block text-gray-400 hover:text-neon transition-colors py-2 border-b border-white/5 font-mono">[ AUDIT ]</a>
+             <a href="#contact" class="block text-white font-bold py-2 mt-2 font-mono uppercase">[ CONTACT_US ]</a>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="fixed bottom-8 right-8 w-12 h-12 bg-neon text-void rounded shadow-2xl z-[100] flex items-center justify-center hover:scale-110 transition-transform duration-300">
+            <i id="theme-icon" class="fa-solid fa-moon text-xl"></i>
+        </button>
+    </nav>
+
+    <style>
+        /* Light Mode Overrides */
+        html.light body {
+            background-color: #ffffff;
+            color: #0b0e14;
+        }
+        html.light .bg-void { background-color: #f8fafc; }
+        html.light .bg-slate { background-color: #f1f5f9; }
+        html.light .text-white { color: #0b0e14; }
+        html.light .text-gray-400 { color: #475569; }
+        html.light .text-gray-500 { color: #64748b; }
+        html.light .text-gray-600 { color: #94a3b8; }
+        html.light .border-white\/10 { border-color: rgba(11, 14, 20, 0.1); }
+        html.light .border-white\/5 { border-color: rgba(11, 14, 20, 0.05); }
+        html.light nav {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-bottom-color: rgba(11, 14, 20, 0.1);
+        }
+        html.light .bg-glass { background-color: rgba(11, 14, 20, 0.03); }
+        html.light .card-hover:hover {
+            box-shadow: 0 0 30px rgba(112, 0, 255, 0.1);
+        }
+        html.light .text-neon { color: #5a8000; } /* Darker lime for light bg */
+        html.light .bg-neon { background-color: #ccff00; }
+        html.light .border-neon { border-color: #ccff00; }
+        html.light .selection\:bg-neon::selection { background-color: #ccff00; color: #0b0e14; }
+        html.light .grid-bg { opacity: 0.1; }
+        html.light #mobile-menu { background-color: #ffffff; }
+    </style>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            html.classList.add('light');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('light');
+            const isLight = html.classList.contains('light');
+            
+            if (isLight) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('flex');
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center pt-20 px-6 z-10">
+        <div class="max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-8">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyber/50 bg-cyber/10 text-cyber text-xs font-mono mb-8">
+                    <span class="w-2 h-2 rounded-full bg-cyber animate-pulse"></span>
+                    SYSTEM_OPTIMIZED
+                </div>
+                <h1 class="text-6xl md:text-8xl font-display font-bold leading-[0.9] mb-8 tracking-tight">
+                    NUMBERS <br>
+                    DON'T LIE. <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon to-emerald-400">WE MAKE THEM PERFORM.</span>
+                </h1>
+                <p class="text-xl text-gray-400 max-w-xl mb-12 font-light border-l-2 border-neon pl-6">
+                    Next-gen accounting, aggressive tax strategy, and ironclad legal defense for the digital age.
+                </p>
+                <div class="flex flex-col md:flex-row gap-6">
+                    <a href="#contact" class="px-8 py-4 bg-neon text-void font-display font-bold hover:bg-white transition-colors flex items-center justify-center gap-3 group">
+                        Start Scale Protocol 
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#services" class="px-8 py-4 border border-white/20 font-display font-bold hover:bg-white/5 hover:border-white transition-colors flex items-center justify-center">
+                        Execute Audit
+                    </a>
+                </div>
+            </div>
+
+            <!-- Abstract Visual -->
+            <div class="md:col-span-4 relative hidden md:block">
+                <div class="relative w-full aspect-square border-2 border-white/10 rounded-full flex items-center justify-center animate-[spin_10s_linear_infinite]">
+                    <div class="w-2/3 h-2/3 border border-dashed border-neon/50 rounded-full"></div>
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center">
+                        <span class="block text-6xl font-display font-bold text-white">35%</span>
+                        <span class="block text-xs font-mono text-neon uppercase tracking-widest mt-2">Avg. Tax Saved</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 px-6 border-t border-white/5 bg-void/50 backdrop-blur-sm relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                     <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">THE ARCHITECTURE</h2>
+                     <p class="text-gray-400 font-mono text-sm max-w-md">Comprehensive financial & legal frameworks.</p>
+                </div>
+                <div class="text-neon font-mono text-xl animate-pulse hidden md:block">/// 01</div>
+            </div>
+           
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <div class="p-8 border border-white/10 bg-white/5 hover:bg-white/10 card-hover transition-all duration-300 group">
+                    <i class="fa-solid fa-chess-queen text-4xl text-neon mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-2xl font-display font-bold mb-4">Strategic Tax</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">Move beyond compliance. We engineer tax strategies that maximize retention and fuel growth.</p>
+                    <ul class="text-sm font-mono text-gray-500 space-y-2">
+                        <li>> Corporate Restructuring</li>
+                        <li>> R&D Credits</li>
+                        <li>> International Tax</li>
+                    </ul>
+                </div>
+
+                 <!-- Service 2 -->
+                 <div class="p-8 border border-white/10 bg-white/5 hover:bg-white/10 card-hover transition-all duration-300 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-cyber blur-[50px] opacity-20"></div>
+                    <i class="fa-solid fa-gavel text-4xl text-cyber mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-2xl font-display font-bold mb-4">Legal Defense</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">Ironclad contracts, IP protection, and litigation support. We build the fortress around your assets.</p>
+                    <ul class="text-sm font-mono text-gray-500 space-y-2">
+                        <li>> Contract Law</li>
+                        <li>> Intellectual Property</li>
+                        <li>> M&A Advisory</li>
+                    </ul>
+                </div>
+
+                 <!-- Service 3 -->
+                 <div class="p-8 border border-white/10 bg-white/5 hover:bg-white/10 card-hover transition-all duration-300 group">
+                    <i class="fa-solid fa-magnifying-glass-chart text-4xl text-white mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-2xl font-display font-bold mb-4">Forensic Audit</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">Deep-dive analysis to uncover inefficiencies, fraud, or hidden value within your organization.</p>
+                    <ul class="text-sm font-mono text-gray-500 space-y-2">
+                        <li>> Internal Controls</li>
+                        <li>> Risk Assessment</li>
+                        <li>> Valuation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Why Us -->
+    <section class="py-32 px-6 bg-slate relative overflow-hidden z-10 border-y border-white/5">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div>
+                <h2 class="text-5xl md:text-7xl font-display font-bold mb-8 leading-tight">
+                    SPEED <br> 
+                    <span class="text-gray-600">PRECISION</span> <br> 
+                    IMPACT
+                </h2>
+                <p class="text-gray-400 text-lg mb-8">
+                    Old accounting looks backward. We look forward. Using AI-driven analytics and real-time reporting, we give you the data to make decisions *now*, not next quarter.
+                </p>
+                <a href="#" class="text-neon font-mono hover:underline decoration-neon underline-offset-4">Read the Manifesto -></a>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-void p-6 border border-white/10">
+                    <span class="block text-4xl font-display font-bold text-white mb-2">$500M+</span>
+                    <span class="text-xs font-mono text-gray-500 uppercase">Assets Managed</span>
+                </div>
+                <div class="bg-void p-6 border border-white/10">
+                    <span class="block text-4xl font-display font-bold text-neon mb-2">0%</span>
+                    <span class="text-xs font-mono text-gray-500 uppercase">Audit Fail Rate</span>
+                </div>
+                <div class="bg-void p-6 border border-white/10 col-span-2">
+                    <span class="block text-4xl font-display font-bold text-cyber mb-2">24/7</span>
+                    <span class="text-xs font-mono text-gray-500 uppercase">Portal Access</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-void pt-32 pb-12 px-6 border-t border-white/10 z-10 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 mb-24">
+                <div>
+                     <span class="text-xs font-mono text-neon mb-4 block">/// INITIATE CONTACT</span>
+                     <h2 class="text-5xl font-display font-bold text-white mb-8">READY TO UPGRADE?</h2>
+                     <a href="mailto:scale@[EMAIL_ADDRESS]" class="text-2xl md:text-4xl font-display text-gray-400 hover:text-white transition-colors border-b border-gray-700 hover:border-white pb-2 inline-block">
+                        scale@[EMAIL_ADDRESS]
+                     </a>
+                </div>
+                <div class="flex flex-col justify-end items-start md:items-end">
+                    <p class="text-right text-gray-500 font-mono text-sm mb-2">HQ: METROPOLIS TOWER, Lvl 42</p>
+                    <p class="text-right text-gray-500 font-mono text-sm">GLOBAL : DIGITALLY NATIVE</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 text-xs font-mono text-gray-600">
+                <p>YOUR NAME Financial & Legal. Protocol Verified.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-neon transition-colors">LINKEDIN</a>
+                    <a href="#" class="hover:text-neon transition-colors">TWITTER</a>
+                    <a href="#" class="hover:text-neon transition-colors">ENCRYPTED_CHAT</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

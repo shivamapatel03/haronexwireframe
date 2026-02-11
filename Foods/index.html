@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAVOR | Eat Vibrant.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        olive: '#7a9147',
+                        chili: '#9e2606',
+                        mustard: '#fcc045',
+                        cream: '#f9f5f0', // Lighter cream for cleaner look
+                        charcoal: '#1a1a1a', // Darker black
+                        'olive-dark': '#5e7036',
+                    },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'], // Very trendy font
+                    },
+                    animation: {
+                        'marquee': 'marquee 20s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500;700&display=swap');
+
+        body {
+            background-color: #f9f5f0;
+            color: #1a1a1a;
+        }
+        
+        /* Hide scrollbar for marquee */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(0,0,0,0.1);
+            color: transparent;
+        }
+        
+        .c-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0px #1a1a1a;
+        }
+
+        .bg-clip-text-image {
+            background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+
+<body class="antialiased font-sans">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 px-6 py-6 mix-blend-difference text-white">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-4xl font-display font-black tracking-tighter hover:text-mustard transition-colors">YOUR SHOP.</a>
+            
+            <div class="hidden md:flex gap-8 items-center font-bold tracking-wide uppercase text-sm">
+                <a href="#menu" class="hover:underline decoration-mustard decoration-4 underline-offset-4">Menu</a>
+                <a href="#vibe" class="hover:underline decoration-mustard decoration-4 underline-offset-4">Vibe</a>
+                </button>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-2xl">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-charcoal text-cream border-t border-mustard p-6 flex-col gap-4 shadow-xl">
+             <a href="#menu" class="block hover:text-mustard transition-colors py-2 border-b border-white/10 font-bold uppercase">Menu</a>
+             <a href="#vibe" class="block hover:text-mustard transition-colors py-2 border-b border-white/10 font-bold uppercase">Vibe</a>
+             <a href="#book" class="block text-mustard font-bold py-2 mt-2 uppercase">Get a Table</a>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('flex');
+        });
+    </script>
+
+    <!-- Hero -->
+    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-charcoal text-cream">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 opacity-20">
+             <div class="absolute top-10 right-10 w-64 h-64 bg-olive rounded-full blur-[100px]"></div>
+             <div class="absolute bottom-10 left-10 w-96 h-96 bg-chili rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-block px-4 py-1 rounded-full border border-mustard text-mustard font-bold uppercase text-xs tracking-widest mb-6">Fresh & Local</span>
+                <h1 class="text-7xl md:text-[8rem] font-display font-black leading-[0.9] mb-8">
+                    EAT <br> <span class="text-olive">REAL</span> <br> GOOD.
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-400 font-light max-w-md mb-10">
+                    Bold flavors. Zero pretension. The food scene you've been waiting for.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#menu" class="px-8 py-4 bg-mustard text-charcoal font-bold rounded-xl hover:bg-white transition-all transform hover:-translate-y-1 hover:shadow-[4px_4px_0px_#fff]">Check the Menu</a>
+                    <a href="#book" class="px-8 py-4 border border-white/20 text-white font-bold rounded-xl hover:border-mustard hover:text-mustard transition-colors">Get a Table</a>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="relative z-10 animate-float">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="rounded-[3rem] rotate-3 border-4 border-cream shadow-2xl w-full max-w-md mx-auto object-cover aspect-[4/5]" alt="Burger">
+                </div>
+                <!-- Decorative Elements -->
+                <div class="absolute -top-10 -right-10 w-24 h-24 bg-chili rounded-full flex items-center justify-center rotate-12 animate-pulse">
+                    <span class="text-white font-display font-black text-center text-xs leading-tight">ONLY<br>THE<br>BEST</span>
+                </div>
+                <div class="absolute -bottom-5 -left-5 text-[10rem] font-display font-black text-outline opacity-20 -z-10 select-none">YUM</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Marquee -->
+    <div class="bg-mustard overflow-hidden py-4 border-y-4 border-charcoal rotate-1 scale-105 z-20 relative shadow-xl">
+        <div class="whitespace-nowrap animate-marquee flex gap-12 text-4xl font-display font-black text-charcoal uppercase">
+            <span>Fresh Ingredients</span> <span class="text-white">*</span> <span>Bold Flavors</span> <span class="text-white">*</span> <span>Good Vibes Only</span> <span class="text-white">*</span> <span>Farm to Fork</span> <span class="text-white">*</span>
+            <span>Fresh Ingredients</span> <span class="text-white">*</span> <span>Bold Flavors</span> <span class="text-white">*</span> <span>Good Vibes Only</span> <span class="text-white">*</span> <span>Farm to Fork</span> <span class="text-white">*</span>
+        </div>
+    </div>
+
+    <!-- The Vibe (Grid) -->
+    <section id="vibe" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl md:text-7xl font-display font-black mb-16 text-center">THE <span class="text-olive italic">VIBE</span></h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 (Large) -->
+                <div class="md:col-span-2 bg-charcoal rounded-[2rem] p-10 relative overflow-hidden group c-card transition-all duration-300 border-2 border-charcoal">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80')] bg-cover bg-center opacity-60 group-hover:scale-105 transition-transform duration-700"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-end">
+                        <span class="bg-olive text-white px-3 py-1 rounded-full text-xs font-bold w-fit mb-4">Space</span>
+                        <h3 class="text-4xl font-display font-bold text-white mb-2">Industrial Chic meets Cozy Corners.</h3>
+                        <p class="text-gray-200">Come for the food, stay for the playlist.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 (Small) -->
+                <div class="bg-mustard rounded-[2rem] p-10 flex flex-col justify-between c-card transition-all duration-300 border-2 border-charcoal">
+                    <i class="fa-solid fa-bolt text-5xl text-charcoal"></i>
+                    <div>
+                        <h3 class="text-3xl font-display font-bold text-charcoal mt-8 mb-2">Super Fast</h3>
+                        <p class="font-medium">Order ahead. Skip the line. Eat good.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 (Small) -->
+                 <div class="bg-cream rounded-[2rem] p-10 flex flex-col justify-between border-2 border-charcoal c-card transition-all duration-300">
+                    <div>
+                        <h3 class="text-3xl font-display font-bold text-charcoal mb-2">100% Organic</h3>
+                        <p class="text-gray-600">We keep it real. No preservatives, just love.</p>
+                    </div>
+                    <div class="flex -space-x-4 mt-8">
+                        <img class="w-12 h-12 rounded-full border-2 border-cream" src="https://randomuser.me/api/portraits/women/1.jpg">
+                        <img class="w-12 h-12 rounded-full border-2 border-cream" src="https://randomuser.me/api/portraits/men/2.jpg">
+                        <div class="w-12 h-12 rounded-full border-2 border-cream bg-olive flex items-center justify-center text-white font-bold text-xs">+2k</div>
+                    </div>
+                </div>
+
+                 <!-- Card 4 (Large) -->
+                 <div class="md:col-span-2 bg-chili rounded-[2rem] p-10 relative overflow-hidden group c-card transition-all duration-300 border-2 border-charcoal text-white">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514362545857-3bc16549766b?w=800&q=80')] bg-cover bg-center opacity-40 group-hover:scale-105 transition-transform duration-700"></div>
+                     <div class="relative z-10 h-full flex flex-col justify-end">
+                        <span class="bg-white text-chili px-3 py-1 rounded-full text-xs font-bold w-fit mb-4">Drinks</span>
+                        <h3 class="text-4xl font-display font-bold mb-2">Craft Cocktails & Natural Wines.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Highlight -->
+    <section id="menu" class="py-24 bg-olive text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+                <h2 class="text-6xl md:text-8xl font-display font-black leading-none">
+                    FAN <br> FAVORITES
+                </h2>
+                <a href="#" class="px-8 py-4 border-2 border-white rounded-full font-bold hover:bg-white hover:text-olive transition-colors mt-8 md:mt-0">View Full Menu</a>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Menu Item 1 -->
+                <div class="group border-b border-white/20 pb-8 hover:bg-white/5 transition-colors p-4 rounded-xl cursor-pointer">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-6">
+                            <span class="text-2xl font-display font-bold text-mustard">01</span>
+                            <div>
+                                <h3 class="text-3xl md:text-5xl font-display font-black group-hover:translate-x-4 transition-transform duration-300">The Smash Burger</h3>
+                                <p class="text-white/60 mt-2 font-light">Double patty, chili jam, aged cheddar, brioche.</p>
+                            </div>
+                        </div>
+                        <span class="text-2xl font-bold">$16</span>
+                    </div>
+                </div>
+
+                 <!-- Menu Item 2 -->
+                 <div class="group border-b border-white/20 pb-8 hover:bg-white/5 transition-colors p-4 rounded-xl cursor-pointer">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-6">
+                            <span class="text-2xl font-display font-bold text-mustard">02</span>
+                            <div>
+                                <h3 class="text-3xl md:text-5xl font-display font-black group-hover:translate-x-4 transition-transform duration-300">Truffle Mac</h3>
+                                <p class="text-white/60 mt-2 font-light">Four cheese blend, truffle oil, crispy garlic.</p>
+                            </div>
+                        </div>
+                        <span class="text-2xl font-bold">$14</span>
+                    </div>
+                </div>
+
+                 <!-- Menu Item 3 -->
+                  <div class="group border-b border-white/20 pb-8 hover:bg-white/5 transition-colors p-4 rounded-xl cursor-pointer">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-6">
+                            <span class="text-2xl font-display font-bold text-mustard">03</span>
+                            <div>
+                                <h3 class="text-3xl md:text-5xl font-display font-black group-hover:translate-x-4 transition-transform duration-300">Spicy Rigatoni</h3>
+                                <p class="text-white/60 mt-2 font-light">Vodka sauce, calabrian chili, basil.</p>
+                            </div>
+                        </div>
+                        <span class="text-2xl font-bold">$18</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Big text background -->
+        <h2 class="absolute -bottom-20 -right-20 text-[15rem] font-display font-black text-white opacity-5 select-none pointer-events-none">YUM</h2>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white pt-24 pb-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between mb-20">
+             <div>
+                <a href="#" class="text-6xl font-display font-black tracking-tighter block mb-6">YOUR SHOP.</a>
+                <p class="text-gray-400 max-w-sm text-lg">
+                    Real food for real people.<br>
+                    Open daily until late.
+                </p>
+            </div>
+            
+            <div class="flex gap-12 mt-12 md:mt-0">
+                <div>
+                    <h4 class="font-bold text-mustard mb-6 uppercase tracking-wider">Socials</h4>
+                    <ul class="space-y-4 font-medium text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Instagram</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">TikTok</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Twitter</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="font-bold text-mustard mb-6 uppercase tracking-wider">Find Us</h4>
+                    <ul class="space-y-4 font-medium text-gray-300">
+                        <li>xxyx roas , GJ</li>
+                        <li>hello@yourshop.com</li>
+                        <li>+91 xxxxx xxxxx</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto border-t border-white/10 pt-8 flex justify-between items-center text-sm text-gray-500">
+            <p>&copy;Your Shop Concepts.</p>
+            <p class="font-display font-bold uppercase tracking-widest text-olive">Eat Good.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
